@@ -1,2 +1,2 @@
-GET https://openlibrary.org/search.json?author=brandon+sanderson&fields=title, 
+GET https://openlibrary.org/search.json?author=brandon+sanderson&fields=title
 ###
