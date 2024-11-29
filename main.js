@@ -1,8 +1,18 @@
 import { getBooksByTitle } from "./libraryAPI.js";
 
-document.addEventListener("DOMContentLoaded", (ev) => {
-  const postSection = document.querySelector(".posts");
+function getMinimumYear(years) {
+  let min = years[0];
 
+  for (let i = 1; i < years.length; i++) {
+    if (years[i] < min) {
+      min = years[i];
+    }
+  }
+
+  return min;
+}
+
+document.addEventListener("DOMContentLoaded", (ev) => {
   getBooksByTitle()
     .then((books) => {
       console.log(books);
@@ -21,12 +31,16 @@ document.addEventListener("DOMContentLoaded", (ev) => {
       cardItem.classList.add("card-item");
       cardItem.innerHTML = `
         <div class="card mx-auto font" style="width: 18rem;">
-                <img src="https://covers.openlibrary.org/b/id/${book.cover_i}.jpg" class="img-top" alt="Imagen de ejemplo">
+                <img src="https://covers.openlibrary.org/b/id/${
+                  book.cover_i
+                }.jpg" class="img-top" alt="Imagen de ejemplo">
                 <div class="card-body ">
                     <div class="d-flex justify-content-between">
                         <h5 class="title">${book.title}</h5>
                         <div>
-                            <p class="year">${book.publish_year}</p>
+                            <p class="year">${getMinimumYear(
+                              book.publish_year
+                            )}</p>
                         </div>
                     </div>
                     <div>
@@ -43,7 +57,9 @@ document.addEventListener("DOMContentLoaded", (ev) => {
                     </div>
                     <div>
                         <p class="property">number of pages</p>
-                        <p class="dataproperty">${book.number_of_pages_median}</p>
+                        <p class="dataproperty">${
+                          book.number_of_pages_median
+                        }</p>
                     </div>
                 </div>
             </div>
@@ -51,5 +67,4 @@ document.addEventListener("DOMContentLoaded", (ev) => {
       card.appendChild(cardItem);
     });
   }
-  getBooksByTitle();
 });
