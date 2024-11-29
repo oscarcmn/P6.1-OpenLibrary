@@ -1,7 +1,7 @@
 .title{
     font-size: 40px;
     font-weight: 700;
-    
+    text-transform: uppercase;
 }
 
 .font {
@@ -13,7 +13,7 @@
 .year{
     position: relative;
     top: 20px;
-    left: 2px;
+    margin-left: 10px ;
 }
 
 .property{
@@ -22,9 +22,15 @@
 
 .dataproperty{
     text-transform: uppercase;
+    font-weight: 600;
+    margin-left: 10px; 
 }
 
 .card{
     border-radius: 0px;
     background-color: #dcd9d2;
 }
+
+input[type="text"] {
+    width: 30%; /* Ajusta el porcentaje al tamaño deseado */
+  }
