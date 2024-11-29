@@ -1,24 +1,46 @@
-import "./style.css";
-import javascriptLogo from "./javascript.svg";
-import viteLogo from "/vite.svg";
-import { setupCounter } from "../counter.js";
+import { getAllPosts, createNewPost } from "./socialApi.js";
 
-document.querySelector("#app").innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`;
+document.addEventListener("DOMContentLoaded", (ev) => {
+  const postSection = document.querySelector(".posts");
 
-setupCounter(document.querySelector("#counter"));
+  getAllPosts()
+    .then((books) => {
+      console.log(books);
+      renderBooks(books);
+    })
+    .catch((err) => {
+      console.log("ERROR: " + err);
+      return null;
+    });
+
+  //event listener, when submit form, call createNewPost
+  function renderBooks(posts) {
+    const postSection = document.querySelector(".books");
+    const cardtemplate = document.querySelector(".template");
+
+    posts.forEach((post) => {
+      const card = cardtemplate.cloneNode(true).content;
+
+      const cardTitle = card.querySelector("#title");
+      cardTitle.textContent = post.title;
+
+      const cardAuthor = card.querySelector("#author");
+      cardAuthor.textContent = post.author;
+
+      postSection.append(card);
+    });
+
+    const form = document.querySelector("form");
+    const buttonForm = form.querySelector("form button");
+
+    buttonForm.addEventListener("click", (event) => {
+      const newPost = {
+        title: form.querySelector("#title").value,
+        author: form.querySelector("#author").value,
+      };
+
+      createNewPost(newPost);
+      document.dispatchEvent("DOMContentLoaded");
+    });
+  }
+});
