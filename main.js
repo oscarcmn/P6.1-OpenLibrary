@@ -1,46 +1,29 @@
-import {
-  getBooksByTitle,
-  getBooksByAuthor,
-  getBooksByAnything,
-} from "./libraryAPI.js";
-
-function getMinimumYear(years) {
-  let min = years[0];
-  for (let i = 1; i < years.length; i++) {
-    if (years[i] < min) {
-      min = years[i];
-    }
-  }
-  return min;
-}
+import { getBooksByTitle } from "./libraryAPI.js";
 
 document.addEventListener("DOMContentLoaded", (ev) => {
-  const form = document.getElementById("form");
-  const query = document.getElementById("query");
+  const postSection = document.querySelector(".posts");
 
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
-    event.stopPropagation();
 
-    if (validateForm()) {
-      console.log("All fields are ok, we can proceed");
-      form.submit();
-    } else {
-      console.log("There is some not-valid field. The user should ckeck them.");
-    }
+  // Obtener todos los radio buttons
+const radios = document.querySelectorAll('input[type="radio"][name="opciones"]');
+
+// Función para manejar el evento
+function manejarRadio(event) {
+  // Iterar sobre todos los radios y marcar su valor como false
+  radios.forEach(radio => {
+    // Si el radio está seleccionado, devuelve true, de lo contrario false
+    radio.value = radio === event.target ? 'true' : 'false';
   });
+}
 
-  function validateForm() {
-    var isValid = true;
+// Agregar el event listener a cada radio button
+radios.forEach(radio => {
+  radio.addEventListener('change', manejarRadio);
+});
 
-    if (query.value === "") {
-      markFieldAsNotValid(query, "Enter a name!");
-      isValid = false;
-    } else {
-      markFieldAsValid(query);
-    }
-    return isValid;
-  }
+
+
+
 
   getBooksByTitle()
     .then((books) => {
@@ -51,70 +34,48 @@ document.addEventListener("DOMContentLoaded", (ev) => {
       console.log("ERROR: " + err);
       return null;
     });
-  /*
-  getBooksByAuthor(query)
-    .then((books) => {
-      console.log(books);
-      renderBooks(books);
-    })
-    .catch((err) => {
-      console.log("ERROR: " + err);
-      return null;
-    });
-*/
-  /*
-  getBooksByAnything(query)
-    .then((books) => {
-      console.log(books);
-      renderBooks(books);
-    })
-    .catch((err) => {
-      console.log("ERROR: " + err);
-      return null;
-    });
-*/
-  const rowCards = document.querySelector(".row");
+
   function renderBooks(books) {
-    rowCards.innerHTML = "";
+    const card = document.querySelector("#cardpreview");
     books.docs.forEach((book) => {
-      const newCard = document.createElement("div");
-      newCard.className = "col-sm-6 col-md-4 col-xl-3 d-flex mt-3";
-      newCard.innerHTML = `
-        <div class="card mx-auto font">
-                <img src="https://covers.openlibrary.org/b/id/${
-                  book.cover_i
-                }.jpg" class="img-top" alt="Imagen de ejemplo">
+      const cardItem = document.createElement("div");
+
+      cardItem.classList.add("card-item");
+      cardItem.innerHTML = `
+        <div class="card mx-auto font" style="width: 18rem;">
+                <img src="https://covers.openlibrary.org/b/id/${book.cover_i}.jpg" class="img-top" alt="Imagen de ejemplo">
                 <div class="card-body ">
                     <div class="d-flex justify-content-between">
                         <h5 class="title">${book.title}</h5>
                         <div>
-                            <p class="year">${getMinimumYear(
-                              book.publish_year
-                            )}</p>
+                            <p class="year">${book.publish_year}</p>
                         </div>
                     </div>
-                    <div>
+                    <div class="d-flex">
                         <p class="property">author</p>
                         <p class="dataproperty">${book.author_name}</p>
                     </div>
-                    <div>
+                    <div class="d-flex">
                         <p class="property">avg rating</p>
                         <p class="dataproperty">${book.ratings_average}</p>
                     </div>
-                    <div>
+                    <div class="d-flex">
                         <p class="property">number of ratings</p>
                         <p class="dataproperty">${book.ratings_count}</p>
                     </div>
-                    <div>
+                    <div class="d-flex">
                         <p class="property">number of pages</p>
-                        <p class="dataproperty">${
-                          book.number_of_pages_median
-                        }</p>
+                        <p class="dataproperty">${book.number_of_pages_median}</p>
                     </div>
                 </div>
             </div>
         `;
-      rowCards.appendChild(newCard);
+      card.appendChild(cardItem);
     });
   }
+  getBooksByTitle();
 });
+
+
+
+
