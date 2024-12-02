@@ -4,6 +4,6 @@ GET https://openlibrary.org/search.json?title=the+way+of+kings&fields=title,auth
 ###
 GET https://openlibrary.org/search.json?author=osamu+dazai&fields=title,author_name,publish_year,ratings_average,ratings_count,cover_i,number_of_pages_median&language=eng
 
-
 ###
+GET https://openlibrary.org/search.json?q=the+way+of+kings&fields=title,author_name,publish_year,ratings_average,ratings_count,cover_i,number_of_pages_median&language=eng
 //https://covers.openlibrary.org/b/id/14658316.jpg

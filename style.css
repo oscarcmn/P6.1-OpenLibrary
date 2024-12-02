@@ -28,3 +28,9 @@
     border-radius: 0px;
     background-color: #dcd9d2;
 }
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    display: none;
+}
