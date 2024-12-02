@@ -22,39 +22,39 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
+
                 <!-- Logo -->
                 <a class="navbar-brand" href="#">
-                    <img src="logo.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
+                    <img src="img/logobooks.jpg" alt="Logo" width="100" height="100"
+                        class="d-inline-block align-text-top">
                 </a>
-                <p class="error-message">Please input something</p>
+                <div class="container mt-5">
 
-                <!-- Menú central -->
-                <div class="mx-auto">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Item1</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Item2</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Item3</a>
-                        </li>
-                    </ul>
+                    <form id="form">
+                        <div class="d-flex">
+                            <input type="text" class="form-control me-2" placeholder="Search for a book">
+                            <div class="error-message">Please input something</div>
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+
+
+                        <div class="mt-3">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="options" id="all" value="all">
+                                <label class="form-check-label" for="all">All</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="options" id="title">
+                                <label class="form-check-label" for="title">Title</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="options" id="author">
+                                <label class="form-check-label" for="author">Author</label>
+                            </div>
+                        </div>
+                    </form>
                 </div>
 
-                <!-- Dropdown a la derecha -->
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Opciones
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="#">Opción 1</a></li>
-                        <li><a class="dropdown-item" href="#">Opción 2</a></li>
-                        <li><a class="dropdown-item" href="#">Opción 3</a></li>
-                    </ul>
-                </div>
             </div>
         </nav>
     </header>
@@ -62,10 +62,38 @@
 
     <main>
         <div class="container mt-5">
-            <div class="row mt-3" id="cardpreview">
+            <div class="row">
+                <div class="col mt-3" id="cardpreview">
+                    <div class="card mx-auto font" style="width: 18rem;">
+                        <img src="img/8e62db4665cdcf483b78eab49ac91364" class="img-top" alt="Imagen de ejemplo">
+                        <div class="card-body ">
+                            <div class="d-flex">
+                                <h5 class="title">book's title</h5>
+                                <div>
+                                    <p class=" year">${}</p>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <p class="property">author</p>
+                                <p class="dataproperty">${ola}</p>
+                            </div>
+                            <div class="d-flex">
+                                <p class="property">avg rating</p>
+                                <p class="dataproperty">${}</p>
+                            </div>
+                            <div class="d-flex">
+                                <p class="property">number of ratings</p>
+                                <p class="dataproperty">${}</p>
+                            </div>
+                            <div class="d-flex">
+                                <p class="property">number of pages</p>
+                                <p class="dataproperty">${}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
     </main>
 
     <footer>

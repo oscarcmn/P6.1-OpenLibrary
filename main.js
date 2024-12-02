@@ -17,10 +17,47 @@ function getMinimumYear(years) {
 document.addEventListener("DOMContentLoaded", (ev) => {
   const form = document.getElementById("form");
   const query = document.getElementById("query");
+  const authorButton = document.getElementById("author");
+  const titleButton = document.getElementById("title");
+  const allButton = document.getElementById("all").value;
 
+  console.log("entra al dom");
   form.addEventListener("submit", function (event) {
+    console.log("entra al submit");
     event.preventDefault();
     event.stopPropagation();
+    console.log(allButton.value);
+    if (allButton.value === "all") {
+      getBooksByAnything(query)
+        .then((books) => {
+          console.log(books);
+          renderBooks(books);
+        })
+        .catch((err) => {
+          console.log("ERROR: " + err);
+          return null;
+        });
+    } else if (authorButton.value === "on") {
+      getBooksByAuthor(query)
+        .then((books) => {
+          console.log(books);
+          renderBooks(books);
+        })
+        .catch((err) => {
+          console.log("ERROR: " + err);
+          return null;
+        });
+    } else {
+      getBooksByTitle(query)
+        .then((books) => {
+          console.log(books);
+          renderBooks(books);
+        })
+        .catch((err) => {
+          console.log("ERROR: " + err);
+          return null;
+        });
+    }
 
     if (validateForm()) {
       console.log("All fields are ok, we can proceed");
@@ -42,38 +79,8 @@ document.addEventListener("DOMContentLoaded", (ev) => {
     return isValid;
   }
 
-  getBooksByTitle()
-    .then((books) => {
-      console.log(books);
-      renderBooks(books);
-    })
-    .catch((err) => {
-      console.log("ERROR: " + err);
-      return null;
-    });
-  /*
-  getBooksByAuthor(query)
-    .then((books) => {
-      console.log(books);
-      renderBooks(books);
-    })
-    .catch((err) => {
-      console.log("ERROR: " + err);
-      return null;
-    });
-*/
-  /*
-  getBooksByAnything(query)
-    .then((books) => {
-      console.log(books);
-      renderBooks(books);
-    })
-    .catch((err) => {
-      console.log("ERROR: " + err);
-      return null;
-    });
-*/
   const rowCards = document.querySelector(".row");
+
   function renderBooks(books) {
     rowCards.innerHTML = "";
     books.docs.forEach((book) => {
