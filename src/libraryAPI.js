@@ -1,4 +1,5 @@
 const API_URL = "https://openlibrary.org";
+const private_API = "http://localhost:3000";
 
 export async function getBooksByTitle(title) {
   const formattedTitle = title.replace(/ /g, "+");
@@ -41,18 +42,15 @@ export async function getBooksByAuthor(author) {
   }
 }
 
-export async function createNewBook(book) {
+export async function createNewFav(book) {
   try {
-    const response = await fetch(
-      `${API_URL}/search.json?title=the+way+of+kings&fields=title,author_name,publish_year,ratings_average,ratings_count,cover_i,number_of_pages_median&language=eng"`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(book),
-      }
-    );
+    const response = await fetch(`${private_API}/books`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(book),
+    });
     if (!response.ok) {
       throw new Error(`Error: ${response.statusText}`);
     }
@@ -61,5 +59,16 @@ export async function createNewBook(book) {
   } catch (error) {
     console.error("Post Data Error:", error);
     throw error;
+  }
+}
+
+export async function getBooksFromPrivateAPI() {
+  try {
+    const response = await fetch(`${private_API}/books`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error:", error);
+    return null;
   }
 }
