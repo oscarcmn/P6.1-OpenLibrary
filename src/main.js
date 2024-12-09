@@ -112,6 +112,16 @@ function renderBooks(books) {
                           book.number_of_pages_median || "N/A"
                         }</p>
                     </div>
+                    <div class="container text-end mt-5">
+                      <i class="bi bi-star-fill" style="font-size: 2rem; color: gold;"></i>
+                      <!--<script>
+                    const star = document.getElementById('star');
+                    star.addEventListener('click', function () {
+                        this.classList.toggle('active'); // Activa/desactiva el relleno al hacer clic
+                    });
+                  </script>-->
+                  
+              </div>
                 </div>
             </div>
         `;
@@ -130,3 +140,4 @@ function markFieldAsNotValid(field, message) {
 function markFieldAsValid(field) {
   field.classList.remove("is-invalid");
 }
+
