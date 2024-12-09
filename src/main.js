@@ -15,6 +15,7 @@ const favorites = document.getElementById("favorites");
 const privateApiButton = document.getElementById("privateApiButton"); // Nuevo botón
 
 form.addEventListener("submit", function (event) {
+  console.log("hola");
   event.preventDefault();
   event.stopPropagation();
 
