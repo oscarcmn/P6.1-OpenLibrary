@@ -37,7 +37,7 @@ This is how it looks when we click on the Favourites button.
 ## table of participation
 | activity | óscar     | ouafae | 
 |-----------|-----------|-----------|
-| api search   |  90% | 10%
+| api search   |  10% | 90%
 | api configuration  | 80%  | 20%  | 
 | filters  | 90%  | 10%  | 
 | powerpoint presentation | 50%  | 50%  | 
