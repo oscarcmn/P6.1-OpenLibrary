@@ -26,9 +26,6 @@ Our application actually has three type of searches: by author, by title and by 
 
 
 
-## Links results from one search to another.
-![alt]()
-
 ## Uses a private API.
 We tried some GET on a rest file to see our private API 
 ![alt](https://github.com/oscarcmn/P6.1-OpenLibrary/blob/main/src/img-screenshots/private_api_code.png)
