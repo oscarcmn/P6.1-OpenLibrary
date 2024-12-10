@@ -72,3 +72,17 @@ export async function getBooksFromPrivateAPI() {
     return null;
   }
 }
+
+export async function deleteBookFromFavorites(bookId) {
+  const response = await fetch(`${private_API}/books/${bookId}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then((response) => {
+    if (!response.ok) {
+      throw new Error("Failed to delete the book from favorites.");
+    }
+    return response.json();
+  });
+}

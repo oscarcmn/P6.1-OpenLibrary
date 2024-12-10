@@ -4,6 +4,7 @@ import {
   getBooksByAnything,
   createNewFav,
   getBooksFromPrivateAPI,
+  deleteBookFromFavorites,
 } from "./libraryAPI.js";
 
 const form = document.getElementById("form");
@@ -204,12 +205,29 @@ function renderFavs(books) {
                         }</p>
                     </div>
                      <button data-id="${
-                       book.key
-                     }" class="btn btn-primary btn-sm fav-btn">Fav</button>
+                       book.id
+                     }" class="btn btn-danger btn-sm del-btn">Delete</button>
                 </div>
             </div>
         `;
     rowCards.appendChild(cardItem);
+    const deleteButton = cardItem.querySelector(".del-btn");
+    deleteButton.addEventListener("click", () => {
+      const bookId = deleteButton.dataset.id;
+
+      // Lógica para eliminar del JSON mediante la API
+      deleteBookFromFavorites(bookId)
+        .then(() => {
+          // Remover el elemento visualmente
+          cardItem.remove();
+          console.log(
+            `Book with ID ${bookId} has been deleted from favorites.`
+          );
+        })
+        .catch((err) => {
+          console.error(`Error deleting book with ID ${bookId}:`, err);
+        });
+    });
   });
 }
 function markFieldAsNotValid(field, message) {
