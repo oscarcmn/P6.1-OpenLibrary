@@ -28,6 +28,7 @@ export async function getBooksByAnything(query) {
     return null;
   }
 }
+
 export async function getBooksByAuthor(author) {
   const formattedAuthor = author.replace(/ /g, "+");
   try {

@@ -1,4 +1,3 @@
-//import the functions from the libraryAPI
 import {
   getBooksByTitle,
   getBooksByAuthor,
