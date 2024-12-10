@@ -1,3 +1,4 @@
+//import the functions from the libraryAPI
 import {
   getBooksByTitle,
   getBooksByAuthor,
@@ -24,32 +25,35 @@ form.addEventListener("submit", function (event) {
     if (titleButton.checked) {
       getBooksByTitle(query)
         .then((books) => {
+          console.log(books);
           renderBooks(books);
         })
         .catch((err) => {
-          console.error("ERROR: " + err);
+          console.log("ERROR: " + err);
         });
     } else if (authorButton.checked) {
       getBooksByAuthor(query)
         .then((books) => {
+          console.log(books);
           renderBooks(books);
         })
         .catch((err) => {
-          console.error("ERROR: " + err);
+          console.log("ERROR: " + err);
         });
     } else if (allButton.checked) {
       getBooksByAnything(query)
         .then((books) => {
+          console.log(books);
           renderBooks(books);
         })
         .catch((err) => {
-          console.error("ERROR: " + err);
+          console.log("ERROR: " + err);
         });
     } else {
       console.log("No radio button selected.");
     }
   } else {
-    console.log("Invalid input.");
+    console.log("There is some not-valid field. The user should check them.");
   }
 });
 
@@ -68,6 +72,7 @@ function validateForm() {
 
 const rowCards = document.querySelector(".row");
 function renderBooks(books) {
+  rowCards.innerHTML = "";
   books.docs.forEach((book) => {
     const cardItem = document.createElement("div");
 
@@ -112,7 +117,9 @@ function renderBooks(books) {
                           book.number_of_pages_median || "N/A"
                         }</p>
                     </div>
-                     <button class="btn btn-primary btn-sm fav-btn">Fav</button>
+                     <button data-id="${
+                       book.key
+                     }" class="btn btn-primary btn-sm fav-btn">Fav</button>
                 </div>
             </div>
         `;
@@ -144,14 +151,16 @@ function renderBooks(books) {
 privateApiButton.addEventListener("click", function () {
   getBooksFromPrivateAPI()
     .then((books) => {
+      console.log(books);
       renderFavs(books);
     })
     .catch((err) => {
-      console.error("ERROR: " + err);
+      console.log("ERROR: " + err);
     });
 });
 
 function renderFavs(books) {
+  rowCards.innerHTML = "";
   books.forEach((book) => {
     const cardItem = document.createElement("div");
 
@@ -201,29 +210,36 @@ function renderFavs(books) {
             </div>
         `;
     rowCards.appendChild(cardItem);
-
     const deleteButton = cardItem.querySelector(".del-btn");
     deleteButton.addEventListener("click", () => {
       const bookId = deleteButton.dataset.id;
       deleteBookFromFavorites(bookId)
         .then(() => {
-          console.log(`Book with ID ${bookId} removed from favorites.`);
+          console.log(
+            `Book with ID ${bookId} has been deleted from favorites.`
+          );
         })
         .catch((err) => {
-          console.error("Error removing book:", err);
+          console.error(`Error deleting book with ID ${bookId}:`, err);
         });
     });
   });
 }
-
-function markFieldAsNotValid(field, message) {
-  field.classList.add("is-invalid");
-  const feedback = field.nextElementSibling;
-  if (feedback) {
-    feedback.textContent = message;
+function markFieldAsNotValid(
+  element,
+  message = "Invalid field. Insert a valid value."
+) {
+  const errorElement = element.parentNode.querySelector(".error-message");
+  if (errorElement) {
+    errorElement.textContent = message;
   }
+  element.parentNode.classList.add("is-not-valid-field");
 }
 
-function markFieldAsValid(field) {
-  field.classList.remove("is-invalid");
+function markFieldAsValid(element) {
+  const errorElement = element.parentNode.querySelector(".error-message");
+  if (errorElement) {
+    errorElement.textContent = "";
+  }
+  element.parentNode.classList.remove("is-not-valid-field");
 }

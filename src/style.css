@@ -1,4 +1,4 @@
-.title{
+.title {
     font-size: 40px;
     font-weight: 700;
     text-transform: uppercase;
@@ -8,46 +8,61 @@
     font-family: "Pathway Gothic One", sans-serif;
     font-weight: 400;
     font-style: normal;
-  }
-  
-.year{
-    position: relative;
-    top: 20px;
-    margin-left: 10px ;
 }
 
-.property{
+.year {
+    position: relative;
+    top: 20px;
+    margin-left: 10px;
+}
+
+.property {
     text-transform: lowercase;
 }
 
-.dataproperty{
+.dataproperty {
     text-transform: uppercase;
     font-weight: 600;
-    margin-left: 10px; 
+    margin-left: 10px;
 }
 
-.card{
+.card {
     border-radius: 0px;
     background-color: #dcd9d2;
 
-   
+
 }
 
-header{
+header {
     background-color: #f4f1ea;
 }
 
 input[type="text"] {
-    width: 30%; /* Ajusta el porcentaje al tamaño deseado */
-  }
+    width: 30%;
+    /* Ajusta el porcentaje al tamaño deseado */
+}
 
-  .error-message {
+.error-message {
     color: red;
     font-size: 12px;
     display: none;
 }
 
-.favbtn{
+.is-not-valid-field input {
+    border-color: red;
+}
+
+.error-message {
+    color: red;
+    font-size: 18px;
+    display: none;
+}
+
+.is-not-valid-field .error-message {
+    display: block;
+}
+
+.favbtn {
     background-color: blue;
     color: white;
     display: flex;
@@ -67,7 +82,8 @@ input[type="text"] {
 /* Cambio al pasar el ratón */
 .star-icon:hover {
     color: gold;
-    transform: scale(1.2); /* Pequeño aumento en tamaño */
+    transform: scale(1.2);
+    /* Pequeño aumento en tamaño */
 }
 
 /* Cambio permanente al hacer clic */
