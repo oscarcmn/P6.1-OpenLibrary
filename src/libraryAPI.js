@@ -83,6 +83,6 @@ export async function deleteBookFromFavorites(bookId) {
     if (!response.ok) {
       throw new Error("Failed to delete the book from favorites.");
     }
-    return response.json();
+    return response.json;
   });
 }

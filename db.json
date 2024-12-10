@@ -1,20 +1,10 @@
 {
   "books": [
     {
-      "id": "70a2",
-      "title": "The Way of Kings",
-      "cover_i": 14658316,
-      "publish_year": 2019,
-      "author_name": "Brandon Sanderson",
-      "ratings_average": 4.5658913,
-      "ratings_count": 129,
-      "number_of_pages_median": 1008
-    },
-    {
       "id": "d3a2",
       "title": "The Final Empire",
       "cover_i": 14658160,
-      "publish_yearyear": 2016,
+      "publish_year": 2016,
       "author_name": "Brandon Sanderson",
       "ratings_average": 4.396396,
       "ratings_count": 111,
@@ -24,7 +14,7 @@
       "id": "df84",
       "title": "The Shining",
       "cover_i": 12376585,
-      "publish_yearyear": 1977,
+      "publish_year": 1977,
       "author_name": "Stephen King",
       "ratings_average": 4.174274,
       "ratings_count": 241,
@@ -34,41 +24,53 @@
       "id": "c1b8",
       "title": "The Well of Ascension",
       "cover_i": 14658341,
-      "publish_yearyear": 2016,
+      "publish_year": 2016,
       "author_name": "Brandon Sanderson",
       "ratings_average": 4.394737,
       "ratings_count": 114,
       "number_of_pages_median": 784
     },
     {
-      "id": "d29b",
-      "title": "1984 (adaptation)",
-      "cover_i": 8745958,
-      "publish_yearyear": 2008,
-      "author_name": "Michael Dean, George Orwell",
-      "ratings_average": 4.6666665,
-      "ratings_count": 15,
-      "number_of_pages_median": 72
+      "id": "0e70",
+      "title": "The Way of Zen",
+      "cover_i": 228623,
+      "publish_year": 1957,
+      "author_name": "Alan Watts",
+      "ratings_average": 4,
+      "ratings_count": 8,
+      "number_of_pages_median": 245
     },
     {
-      "id": "a1c4",
+      "id": "2164",
       "title": "Make Way for Ducklings",
       "cover_i": 400659,
-      "publish_yearyear": 1941,
+      "publish_year": 1941,
       "author_name": "Robert McCloskey, David Crommett",
       "ratings_average": 4.3333335,
       "ratings_count": 12,
       "number_of_pages_median": 67
     },
     {
-      "id": "1076",
-      "title": "Something Wicked This Way Comes",
-      "cover_i": 9346340,
-      "publish_yearyear": 1962,
-      "author_name": "Ray Bradbury",
-      "ratings_average": 4.071429,
-      "ratings_count": 28,
-      "number_of_pages_median": 286
+      "id": "642f",
+      "title": "The Hard Way",
+      "cover_i": 14425111,
+      "publish_year": 2016,
+      "author_name": "Lee Child",
+      "ratings_average": 3.5333333,
+      "ratings_count": 15,
+      "number_of_pages_median": 512
+    },
+    {
+      "id": "d169",
+      "title": "50 Shades of Grey!",
+      "cover_i": "",
+      "publish_year": [
+        2016
+      ],
+      "author_name": "E. L. James, Hils Stirling, Norman Grieve",
+      "ratings_average": "N/A",
+      "ratings_count": "N/A",
+      "number_of_pages_median": 24
     }
   ]
 }

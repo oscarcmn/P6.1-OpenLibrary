@@ -12,11 +12,9 @@ const inputText = document.getElementById("inputText");
 const authorButton = document.getElementById("author");
 const allButton = document.getElementById("all");
 const titleButton = document.getElementById("title");
-const favorites = document.getElementById("favorites");
-const privateApiButton = document.getElementById("privateApiButton"); // Nuevo botón
+const privateApiButton = document.getElementById("privateApiButton");
 
 form.addEventListener("submit", function (event) {
-  console.log("hola");
   event.preventDefault();
   event.stopPropagation();
 
@@ -26,35 +24,32 @@ form.addEventListener("submit", function (event) {
     if (titleButton.checked) {
       getBooksByTitle(query)
         .then((books) => {
-          console.log(books);
           renderBooks(books);
         })
         .catch((err) => {
-          console.log("ERROR: " + err);
+          console.error("ERROR: " + err);
         });
     } else if (authorButton.checked) {
       getBooksByAuthor(query)
         .then((books) => {
-          console.log(books);
           renderBooks(books);
         })
         .catch((err) => {
-          console.log("ERROR: " + err);
+          console.error("ERROR: " + err);
         });
     } else if (allButton.checked) {
       getBooksByAnything(query)
         .then((books) => {
-          console.log(books);
           renderBooks(books);
         })
         .catch((err) => {
-          console.log("ERROR: " + err);
+          console.error("ERROR: " + err);
         });
     } else {
       console.log("No radio button selected.");
     }
   } else {
-    console.log("There is some not-valid field. The user should check them.");
+    console.log("Invalid input.");
   }
 });
 
@@ -73,7 +68,6 @@ function validateForm() {
 
 const rowCards = document.querySelector(".row");
 function renderBooks(books) {
-  rowCards.innerHTML = "";
   books.docs.forEach((book) => {
     const cardItem = document.createElement("div");
 
@@ -118,9 +112,7 @@ function renderBooks(books) {
                           book.number_of_pages_median || "N/A"
                         }</p>
                     </div>
-                     <button data-id="${
-                       book.key
-                     }" class="btn btn-primary btn-sm fav-btn">Fav</button>
+                     <button class="btn btn-primary btn-sm fav-btn">Fav</button>
                 </div>
             </div>
         `;
@@ -131,7 +123,7 @@ function renderBooks(books) {
       const newFav = {
         title: book.title || "Unknown Title",
         cover_i: book.cover_i || "",
-        publish_yearyear: book.publish_year ? book.publish_year[0] : "N/A",
+        publish_year: book.publish_year,
         author_name: book.author_name ? book.author_name.join(", ") : "Unknown",
         ratings_average: book.ratings_average || "N/A",
         ratings_count: book.ratings_count || "N/A",
@@ -152,16 +144,14 @@ function renderBooks(books) {
 privateApiButton.addEventListener("click", function () {
   getBooksFromPrivateAPI()
     .then((books) => {
-      console.log(books);
       renderFavs(books);
     })
     .catch((err) => {
-      console.log("ERROR: " + err);
+      console.error("ERROR: " + err);
     });
 });
 
 function renderFavs(books) {
-  rowCards.innerHTML = "";
   books.forEach((book) => {
     const cardItem = document.createElement("div");
 
@@ -211,25 +201,21 @@ function renderFavs(books) {
             </div>
         `;
     rowCards.appendChild(cardItem);
+
     const deleteButton = cardItem.querySelector(".del-btn");
     deleteButton.addEventListener("click", () => {
       const bookId = deleteButton.dataset.id;
-
-      // Lógica para eliminar del JSON mediante la API
       deleteBookFromFavorites(bookId)
         .then(() => {
-          // Remover el elemento visualmente
-          cardItem.remove();
-          console.log(
-            `Book with ID ${bookId} has been deleted from favorites.`
-          );
+          console.log(`Book with ID ${bookId} removed from favorites.`);
         })
         .catch((err) => {
-          console.error(`Error deleting book with ID ${bookId}:`, err);
+          console.error("Error removing book:", err);
         });
     });
   });
 }
+
 function markFieldAsNotValid(field, message) {
   field.classList.add("is-invalid");
   const feedback = field.nextElementSibling;
