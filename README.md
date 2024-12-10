@@ -4,23 +4,31 @@
 
 ## Meets basic functions: data access, styled results display, and error checking.
 We used the OpenLibrary's public API. Here´s the [link](https://openlibrary.org/developers/api) if you want to it chek out.
-![alt](https://github.com/oscarcmn/P6.1-OpenLibrary/blob/main/src/img-screenshots/dataa-access.png)
+Here is how we tried to check if the data was in fact in the API. We got a rest archive so we can see the scrap that it makes. 
+![alt](https://github.com/oscarcmn/P6.1-OpenLibrary/blob/main/src/img-screenshots/data_access.png)
+
 
 ## Performs searches with three or more parameters.
+Our cards contain six parameters: title of the book, year it was released, author, the average rating given by the readers, the number of readers that rated the book and the number of pages. 
+![alt](https://github.com/oscarcmn/P6.1-OpenLibrary/blob/main/src/img-screenshots/three-parameters.png)
 
 ## Implements two types of searches.
+### Our application actually has three type of searches: by author, by title and by both of them. Here we got a preview of how the website looks after we do the search:
+
+1. ![alt](https://github.com/oscarcmn/P6.1-OpenLibrary/blob/main/src/img-screenshots/2typesofsearches_title.png)
+2. ![alt](https://github.com/oscarcmn/P6.1-OpenLibrary/blob/main/src/img-screenshots/2typesofsearches_author.png)
+3. ![alt](https://github.com/oscarcmn/P6.1-OpenLibrary/blob/main/src/img-screenshots/2typesofsearches_all.png)
+
+
 
 ## Links results from one search to another.
-
+![alt]()
 ## Uses a private API.
+![alt](https://github.com/oscarcmn/P6.1-OpenLibrary/blob/main/src/img-screenshots/private_api_code.png)
 
 Este es un párrafo con texto en **negrita**, *cursiva*, y ~~tachado~~.
 
-### Lista ordenada
 
-1. Primer elemento
-2. Segundo elemento
-3. Tercer elemento
 
 ### Lista desordenada
 
