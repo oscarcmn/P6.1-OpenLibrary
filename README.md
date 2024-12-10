@@ -8,7 +8,7 @@ We used the OpenLibrary's public API. Here´s the [link](https://openlibrary.org
 Here is how we tried to **check if the data was, in fact, in the API**. We got a rest archive so we can see the scrap that it makes. 
 ![alt](https://github.com/oscarcmn/P6.1-OpenLibrary/blob/main/src/img-screenshots/data_access.png)
 We implemented an **error checking** in the search bar in case you try to search a void message. You should type somehing so it can let you make a search
-![alt](https://github.com/oscarcmn/P6.1-OpenLibrary/blob/main/src/img-screenshots/error-checking.png)
+![alt](https://github.com/oscarcmn/P6.1-OpenLibrary/blob/main/src/img-screenshots/error_checking_2.png)
 
 
 ## Performs searches with three or more parameters.
@@ -34,14 +34,14 @@ This is how it looks when we click on the Favourites button.
 
 
 
-## tabla de mierda
-| Columna 1 | óscar     | wafae | Columna 4 | Columna 5 |
-|-----------|-----------|-----------|-----------|-----------|
-| búsqueda de api   | Fila 1C3  | Fila 1C4  | Fila 1C5  |
-| configuración de api  | Fila 1C2  | Fila 1C3  | Fila 1C4  | Fila 1C5  |
-| filtros  | Fila 1C2  | Fila 1C3  | Fila 1C4  | Fila 1C5  |
-|  todo el curro xdd | Fila 1C2  | Fila 1C3  | Fila 1C4  | Fila 1C5  |
-| presentación powerpoint  | Fila 2C2  | Fila 2C3  | Fila 2C4  | Fila 2C5  |
-|  documentación markdown | Fila 3C2  | Fila 3C3  | Fila 3C4  | Fila 3C5  |
-|  diseño | Fila 4C2  | Fila 4C3  | Fila 4C4  | Fila 4C5  |
-| a  | Fila 5C2  | Fila 5C3  | Fila 5C4  | Fila 5C5  |
+## table of participation
+| activity | óscar     | ouafae | 
+|-----------|-----------|-----------|
+| api search   |  10% | 90%
+| api configuration  | 80%  | 20%  | 
+| filters  | 90%  | 10%  | 
+| powerpoint presentation | 50%  | 50%  | 
+|  markdown documentation | 10%  | 90%  | 
+|  design | 20%  | 80%  |
+|  private api | 90%  | 10%  |
+ 
