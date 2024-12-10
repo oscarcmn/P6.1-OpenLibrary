@@ -8,7 +8,7 @@ We used the OpenLibrary's public API. Here´s the [link](https://openlibrary.org
 Here is how we tried to **check if the data was, in fact, in the API**. We got a rest archive so we can see the scrap that it makes. 
 ![alt](https://github.com/oscarcmn/P6.1-OpenLibrary/blob/main/src/img-screenshots/data_access.png)
 We implemented an **error checking** in the search bar in case you try to search a void message. You should type somehing so it can let you make a search
-![alt](https://github.com/oscarcmn/P6.1-OpenLibrary/blob/main/src/img-screenshots/error-checking_2.png)
+![alt](https://github.com/oscarcmn/P6.1-OpenLibrary/blob/main/src/img-screenshots/error_checking_2.png)
 
 
 ## Performs searches with three or more parameters.
@@ -35,12 +35,13 @@ This is how it looks when we click on the Favourites button.
 
 
 ## table of participation
-| acrivity | óscar     | wafae | 
+| activity | óscar     | ouafae | 
 |-----------|-----------|-----------|
-| api search   |  70% | 30%
+| api search   |  90% | 10%
 | api configuration  | 80%  | 20%  | 
 | filters  | 90%  | 10%  | 
 | powerpoint presentation | 50%  | 50%  | 
 |  markdown documentation | 10%  | 90%  | 
-|  design | 20%  | 80%  | 
+|  design | 20%  | 80%  |
+|  private api | 90%  | 10%  |
  
